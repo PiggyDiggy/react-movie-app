@@ -1,0 +1,16 @@
+.features {
+  list-style: none;
+  text-align: left;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.feature__name {
+  text-transform: capitalize;
+  color: var(--text-primary);
+}
+
+.feature__value {
+  margin-left: 0.25em;
+  color: var(--text-light);
+}

@@ -1,0 +1,17 @@
+.movies-wrapper {
+  margin-top: 1em;
+}
+
+.movies {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2em;
+  padding-inline: 1em;
+  margin-block: 3em;
+}
+
+.error {
+  color: var(--text-danger);
+}

@@ -1,0 +1,112 @@
+.search__wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 3em;
+  padding-inline: 1em;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+  max-width: 500px;
+  padding-right: 2em;
+  border-radius: 0.5em;
+  background-color: transparent;
+  border: 1px solid #393a41;
+  position: relative;
+  transition: border 0.05s ease-out, box-shadow 0.1s ease-out;
+}
+
+.search:focus-within {
+  border-color: #5b5c62;
+  box-shadow: 0 0 20px -3px rgba(91, 92, 98, 0.4);
+}
+
+.search_error {
+  border-color: var(--text-danger) !important;
+  box-shadow: 0 0 20px -3px rgba(204, 91, 95, 0.4) !important;
+}
+
+.search__input {
+  font-family: inherit;
+  font-size: 1.8em;
+  padding: 0.5em 0 0.5em 1em;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: #fff;
+  background-color: transparent;
+}
+
+.search__placeholder {
+  color: var(--text-light);
+  position: absolute;
+  left: 1em;
+  pointer-events: none;
+  font-size: 1.5em;
+  transition: all 0.1s ease-out;
+}
+
+.search__placeholder_animated,
+.search:focus-within .search__placeholder {
+  transform: translate(-0.5em, -2.2em);
+  font-size: 1em;
+  color: var(--text-muted);
+  background-color: var(--background);
+}
+
+.search__cross {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  font-size: 1.8em;
+  color: var(--background);
+  background-color: var(--text-light);
+  user-select: none;
+  cursor: pointer;
+  height: 1em;
+  width: 1em;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease-out, box-shadow 0.1s ease-out;
+}
+
+.search__cross:hover {
+  background-color: #f8f9fa;
+  box-shadow: 0 0 10px -3px #f8f9fa;
+}
+
+.search__divider {
+  border-right: 1px solid var(--text-muted);
+  align-self: stretch;
+  margin-block: 1em;
+}
+
+.search__button {
+  border: none;
+  background-color: transparent;
+  width: 1.8em;
+  height: 1.8em;
+  padding: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.search__button:focus {
+  outline: none;
+}
+
+.search__button svg {
+  fill: var(--text-muted);
+  display: block;
+  height: 100%;
+  width: 100%;
+  transition: fill 0.1s ease-out;
+}
+
+.search__button:hover svg,
+.search__button:focus svg {
+  fill: var(--text-light);
+}
