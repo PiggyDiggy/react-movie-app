@@ -1,0 +1,35 @@
+.skeleton__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.skeleton__field {
+  height: 1em;
+  width: 100%;
+  background-color: var(--text-muted);
+  border-radius: 4px;
+  animation: skeleton-glow 1s ease-out infinite;
+  animation-delay: calc(var(--data-count) * 0.2s);
+}
+
+.skeleton__field:last-child:not([data-count="0"]) {
+  width: 80%;
+}
+
+@keyframes skeleton-glow {
+  0% {
+    background-color: var(--text-muted);
+  }
+
+  50% {
+    background-color: #919191;
+  }
+
+  100% {
+    background-color: var(--text-muted);
+  }
+}

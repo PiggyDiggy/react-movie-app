@@ -69,6 +69,23 @@
   font-size: 1.2em;
 }
 
+.overview__title {
+  color: var(--text-primary);
+  font-weight: normal;
+  margin: 0;
+  text-align: left;
+}
+
+.overview__type {
+  color: var(--text-muted);
+  font-size: 1.3rem;
+  font-style: italic;
+  margin-left: 0.25em;
+  display: inline-block;
+  transform: translateY(-0.15em);
+  white-space: nowrap;
+}
+
 @media (hover: none) {
   .movie__year {
     opacity: 1;

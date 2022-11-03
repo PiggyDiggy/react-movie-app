@@ -9,23 +9,6 @@
   padding: 1em;
 }
 
-.overview__title {
-  color: var(--text-primary);
-  font-weight: normal;
-  margin: 0;
-  text-align: left;
-}
-
-.overview__type {
-  color: var(--text-muted);
-  font-size: 1.3rem;
-  font-style: italic;
-  margin-left: 0.25em;
-  display: inline-block;
-  transform: translateY(-0.175em);
-  white-space: nowrap;
-}
-
 .horizontal-divider {
   border-color: var(--text-muted);
 }

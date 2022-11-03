@@ -1,7 +1,9 @@
 import css from "./MovieCard.module.css";
-import { MovieOverview } from "../MovieOverview";
 import { useState } from "react";
-import { fetchData } from "../../utils/fetchData";
+import { MovieOverview } from "../MovieOverview";
+import { fetchData } from "../../utils";
+import { FeaturesList } from "../FeaturesList";
+import { Skeleton } from "../Skeleton";
 
 const imgPlaceholderSrc = "https://via.placeholder.com/400";
 
@@ -22,6 +24,19 @@ export const MovieCard = ({ movie }) => {
     });
   };
 
+  const overviewTitle = (
+    <h1 className={css.overview__title}>
+      <span>{movie.Title}</span>
+      <span className={css.overview__type}>— {movie.Type}</span>
+    </h1>
+  );
+
+  const overviewDescription = Object.keys(detailedInfo).length ? (
+    <FeaturesList features={detailedInfo} />
+  ) : (
+    <Skeleton count={4} />
+  );
+
   return (
     <>
       <li className={css.movie} onClick={fetchMovieInfo}>
@@ -40,12 +55,12 @@ export const MovieCard = ({ movie }) => {
           <div className={css.movie__title}>{movie.Title}</div>
         </div>
       </li>
-      <MovieOverview
-        close={closeOverview}
-        isOpen={overviewVisible}
-        info={detailedInfo}
-        movie={movie}
-      />
+      <MovieOverview close={closeOverview} isOpen={overviewVisible}>
+        {{
+          title: overviewTitle,
+          description: overviewDescription,
+        }}
+      </MovieOverview>
     </>
   );
 };
