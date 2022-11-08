@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { MovieList } from "./Components/MovieList";
-import { Button } from "./Components/Button";
 import { Search } from "./Components/Search";
 import { fetchData } from "./utils/fetchData";
 
@@ -11,7 +10,7 @@ export const App = () => {
   const [error, setError] = useState("");
   const [page, setPage] = useState(1);
 
-  const loadButtonVisible = totalCount > movies.length;
+  const apiExhausted = totalCount === movies.length;
 
   const searchMovies = async () => {
     if (search === "") return;
@@ -49,8 +48,12 @@ export const App = () => {
         onSubmit={searchMovies}
         clear={clear}
       />
-      <MovieList movies={movies} error={error} />
-      {loadButtonVisible && <Button onClick={loadMore}>Load More</Button>}
+      <MovieList
+        movies={movies}
+        error={error}
+        loadMore={loadMore}
+        apiExhausted={apiExhausted}
+      />
     </div>
   );
 };
