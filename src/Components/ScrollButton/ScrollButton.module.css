@@ -1,0 +1,22 @@
+.scroll-button {
+  position: fixed;
+  bottom: 1.5em;
+  left: 1.5em;
+  width: 3.5em;
+  height: 3.5em;
+  z-index: 10;
+  cursor: pointer;
+  border-radius: 100%;
+  background-color: var(--text-light);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+  transform: translateY(calc(1.5em + 3.5em));
+  transition: transform 0.1s ease-out, background-color 0.2s ease-out;
+}
+
+.scroll-button:hover {
+  background-color: white;
+}
+
+.scroll-button_active {
+  transform: translateY(0);
+}

@@ -29,6 +29,7 @@ body {
 .App {
   overflow: auto;
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 #root {

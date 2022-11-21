@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { MovieList } from "./Components/MovieList";
+import { ScrollButton } from "./Components/ScrollButton";
 import { Search } from "./Components/Search";
 import { fetchData } from "./utils/fetchData";
 
@@ -9,6 +10,7 @@ export const App = () => {
   const [search, setSearch] = useState("");
   const [error, setError] = useState("");
   const [page, setPage] = useState(1);
+  const appRef = useRef(null);
 
   const apiExhausted = totalCount === movies.length;
 
@@ -39,7 +41,7 @@ export const App = () => {
   };
 
   return (
-    <div className="App">
+    <div className="App" ref={appRef}>
       <Search
         error={error}
         search={search}
@@ -54,6 +56,7 @@ export const App = () => {
         loadMore={loadMore}
         apiExhausted={apiExhausted}
       />
+      <ScrollButton scrollable={appRef.current} />
     </div>
   );
 };
