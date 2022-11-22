@@ -1,0 +1,38 @@
+.loader {
+  display: flex;
+  justify-content: center;
+  height: 5em;
+  margin-block: 3em;
+}
+
+.loader svg {
+  stroke-dasharray: 300;
+  animation: loading 1.5s infinite, rotate 2s infinite linear;
+}
+
+@keyframes loading {
+  0% {
+    stroke-dasharray: 0 300;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 190 300;
+    stroke-dashoffset: -100;
+  }
+
+  100% {
+    stroke-dasharray: 190 300;
+    stroke-dashoffset: -285;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

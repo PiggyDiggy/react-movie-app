@@ -1,5 +1,5 @@
 .movies-wrapper {
-  margin-top: 1em;
+  margin-top: 3em;
 }
 
 .movies {
@@ -13,5 +13,6 @@
 }
 
 .error {
+  margin-top: 1em;
   color: var(--text-danger);
 }

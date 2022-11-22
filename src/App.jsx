@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { MovieList } from "./Components/MovieList";
 import { ScrollButton } from "./Components/ScrollButton";
 import { Search } from "./Components/Search";
+import { Loader } from "./Components/Loader";
 import { fetchData } from "./utils/fetchData";
 
 export const App = () => {
@@ -9,21 +10,22 @@ export const App = () => {
   const [totalCount, setTotalCount] = useState(0);
   const [search, setSearch] = useState("");
   const [error, setError] = useState("");
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const appRef = useRef(null);
 
-  const apiExhausted = totalCount === movies.length;
+  const apiExhausted = totalCount === movies.length && totalCount !== 0;
+  const loaderVisible = page > 0 && !error && !apiExhausted;
 
   const searchMovies = async () => {
     if (search === "") return;
     setPage(1);
+    setMovies([]);
+    setError("");
     const response = await fetchData({ s: search, page: 1 });
     if (response.Response === "True") {
       setMovies(response.Search);
-      setError("");
       setTotalCount(Number(response.totalResults));
     } else {
-      setMovies([]);
       setError(response.Error);
       setTotalCount(0);
     }
@@ -57,6 +59,7 @@ export const App = () => {
         apiExhausted={apiExhausted}
       />
       <ScrollButton scrollable={appRef.current} />
+      {loaderVisible && <Loader />}
     </div>
   );
 };
